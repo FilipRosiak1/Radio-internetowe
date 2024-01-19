@@ -205,17 +205,22 @@ void * radio(void *) {
       file.close();
       // jeżeli odtwarzany jest utwór inny niż podstawowy utwór, to po zagraniu utwór zostaje usunięty z serwera
       int to_remove = 1;
-      if(strcmp(song_queue[0].c_str(), "rr") && (song_queue.size() > 1)) {
+      if(!strcmp(song_queue[0].c_str(), "rr")) {
+        to_remove = 0;
+      }
+
+      if(song_queue.size() > 1) {
         for(int i = 1; i < song_queue.size(); i++) {
           if(song_queue[0] == song_queue[i]) {
             to_remove = 0;
           }
         }
-        if(to_remove) {
+      }
+
+      if(to_remove) {
           cout << "Usuwam utwór: " << song_queue[0] << endl;
           remove(song_queue[0].c_str());
         }
-      }
 
       song_queue.erase(song_queue.begin());
 
