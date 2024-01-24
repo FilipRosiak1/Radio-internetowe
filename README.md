@@ -6,7 +6,7 @@ Jakub Stefański 151876
 
 ### Uruchamianie serwera:
 Należy skompilować plik z kodem źródłowym serwera poleceniem:  
-g++ projekt_serwer.cpp -lpthread 
+g++ projekt_serwer.cpp -lpthread  
 Następnie uruchomić plik binarny:  
 ./a.out  
 
